@@ -19,6 +19,7 @@ export class AppComponent {
     this.api.getAllThings().subscribe(
       data => {
         this.things = data
+        console.log(this.things)
       }, error => {
         console.log(error)
       })

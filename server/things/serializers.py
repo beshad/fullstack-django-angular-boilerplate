@@ -5,4 +5,9 @@ from .models import Things
 class ThingsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Things
-        fields = ('id', 'username', 'email')
+        fields = ('id', 'username', 'email', 'interests')
+
+class ThingsFilteredSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Things
+        fields = ('id', 'email')
