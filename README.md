@@ -1,8 +1,10 @@
-# Fullstack Django 2 and Angular Boilerplate 
+# Fullstack Django 2 and Angular Boilerplate
 
 > Server
-  - Django
-  - MySql database
+- Django
+- MySql database
+- Port: 9000
 
 > Client
-  - Angular
+- Angular
+- Port: 3000 
