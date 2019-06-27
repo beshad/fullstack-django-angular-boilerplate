@@ -28,6 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# A list of origins that are authorized to make cross-site HTTP requests
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000"
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'server.things'
+    'corsheaders',
+    'server.things',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'server.urls'
