@@ -23,4 +23,10 @@ export class ApiService {
       headers: this.httpsHeaders
     })
   }
+
+  updateThing(thing): Observable <any> {
+    return this.http.put(`${this.baseUrl}/things/${thing.id}/`, thing, {
+      headers: this.httpsHeaders
+    })
+  }
 }

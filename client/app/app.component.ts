@@ -11,7 +11,6 @@ import { ApiService } from './api.service'
 export class AppComponent {
 
   things: any
-
   thing: Thing = {
     id: 0,
     username: 'nil',
@@ -37,8 +36,16 @@ export class AppComponent {
     this.api.getThing(id).subscribe(data => {
       this.thing = data;
     }, error => {
-
+      // do something with error
     })
+  }
+
+  updateThing = () => {
+    this.api.updateThing(this.thing).subscribe(() => {
+      // do something with success
+    }, error => {
+        // do something with error
+      })
   }
 }
 
