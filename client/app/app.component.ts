@@ -7,11 +7,20 @@ import { ApiService } from './api.service'
   styleUrls: ['./app.component.scss'],
   providers: [ApiService]
 })
+
 export class AppComponent {
 
   things: any
 
-  constructor(private api:ApiService) {
+  thing: Thing = {
+    id: 0,
+    username: 'nil',
+    email: 'nil',
+    interests: 'nil'
+  }
+
+  constructor(private api: ApiService) {
+
     this.getThings()
   }
 
@@ -19,9 +28,23 @@ export class AppComponent {
     this.api.getAllThings().subscribe(
       data => {
         this.things = data
-        console.log(this.things)
       }, error => {
         console.log(error)
       })
   }
+
+  thingClicked = id => {
+    this.api.getThing(id).subscribe(data => {
+      this.thing = data;
+    }, error => {
+
+    })
+  }
+}
+
+interface Thing {
+  id?: number;
+  username?: string;
+  email?: string;
+  interests?: string;
 }

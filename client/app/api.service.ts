@@ -17,4 +17,10 @@ export class ApiService {
       headers: this.httpsHeaders
     })
   }
+
+  getThing(id): Observable <any> {
+    return this.http.get(`${this.baseUrl}/things/${id}/`, {
+      headers: this.httpsHeaders
+    })
+  }
 }
