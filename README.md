@@ -9,10 +9,15 @@
 - Angular
 - Port: 3000 
 
+##### Install dependencies
+```pipenv shell```
+```npm install```
+```pipenv install```
 
-##### to run:
+
+##### Run: 
 ```npm run server``` & ```npm run client``` 
-OR start server+client  ``` npm start```
+(or start both:  ``` npm start```)
 
 
 
