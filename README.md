@@ -2,9 +2,17 @@
 
 > Server
 - Django
-- MySql database
-- Port: 9000
+- PostgreSQL database
+- Port: 7000
 
 > Client
 - Angular
 - Port: 3000 
+
+
+##### to run:
+```npm run server``` & ```npm run client``` 
+OR start server+client  ``` npm start```
+
+
+

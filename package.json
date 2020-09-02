@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "client": "ng serve",
-    "server": "python3 manage.py runserver localhost:9000",
+    "server": "./manage.py runserver 7000",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "ng build",
     "test": "ng test",
