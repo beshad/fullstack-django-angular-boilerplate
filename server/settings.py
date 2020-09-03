@@ -24,7 +24,6 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000"
 ]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,9 +35,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'rest_registration',
+    'knox',
     'server.things',
+    'server.accounts'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'knox.auth.TokenAuthentication',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
