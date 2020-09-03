@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'knox',
     'server.things',
-    'server.accounts'
+    'server.accounts',
+    'django_rest_passwordreset'
 ]
 
 REST_FRAMEWORK = {
@@ -45,6 +46,8 @@ REST_FRAMEWORK = {
         'knox.auth.TokenAuthentication',
     ]
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
