@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content" aria-controls="navbar-supported-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbar-supported-content">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link" routerLinkActive="active">
+          <fa-icon [icon]="faHome"></fa-icon>
+          <span [innerHTML]="'Home'"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/auth/login" class="nav-link" routerLinkActive="active">
+          <fa-icon [icon]="faSignInAlt"></fa-icon>
+          <span [innerHTML]="'Login'"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/auth/register" class="nav-link" routerLinkActive="active">
+          <fa-icon [icon]="faUserPlus"></fa-icon>
+          <span [innerHTML]="'Register'"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/users" class="nav-link" routerLinkActive="active">
+          <fa-icon [icon]="faUsers"></fa-icon>
+          <span [innerHTML]="'Users'"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/admin" class="nav-link" routerLinkActive="active">
+          <fa-icon [icon]="faTools"></fa-icon>
+          <span [innerHTML]="'Admin'"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a  routerLink="/auth/logout" class="nav-link">
+          <fa-icon [icon]="faSignOutAlt"></fa-icon>
+          <span [innerHTML]="'Signout'"></span>
+        </a>
+      </li>
+      <li class="nav-item">
+          <nb-user [name]="currentUser?.email" [picture]="currentUser?.picture"></nb-user>
+      </li>
+    </ul>
+  </div>
+</nav>

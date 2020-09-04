@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'themes';
+@import '~@nebular/theme/styles/globals';
+@import '~@nebular/auth/styles/globals';
+
+@import '~@angular/material/theming';
+
+@include nb-install() {
+  @include nb-theme-global();
+  @include nb-auth-global(); 
+};
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

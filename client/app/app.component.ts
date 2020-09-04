@@ -1,57 +1,30 @@
-import { Component } from '@angular/core'
-import { ApiService } from './api.service'
+
+import { AfterViewChecked, ChangeDetectorRef, Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [ApiService]
+  template: `
+  <div [@routeAnimations]="prepareRoute(outlet)">
+      <router-outlet #outlet="outlet"></router-outlet>
+   </div>
+  `,
+  animations: [
+    // slider,
+    // fader,
+    // transformer,
+  ]
 })
 
-export class AppComponent {
+export class AppComponent implements AfterViewChecked{
 
-  things: any
-  thing: Thing = {
-    id: 0,
-    username: 'nil',
-    email: 'nil',
-    interests: 'nil'
+  constructor(private changeDetector: ChangeDetectorRef) { }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
-  constructor(private api: ApiService) {
-
-    this.getThings()
+  ngAfterViewChecked() {
+    this.changeDetector.detectChanges();
   }
-
-  getThings = () => {
-    this.api.getAllThings().subscribe(
-      data => {
-        this.things = data
-      }, error => {
-        console.log(error)
-      })
-  }
-
-  thingClicked = id => {
-    this.api.getThing(id).subscribe(data => {
-      this.thing = data;
-    }, error => {
-      // do something with error
-    })
-  }
-
-  updateThing = () => {
-    this.api.updateThing(this.thing).subscribe(() => {
-      // do something with success
-    }, error => {
-        // do something with error
-      })
-  }
-}
-
-interface Thing {
-  id?: number;
-  username?: string;
-  email?: string;
-  interests?: string;
 }
