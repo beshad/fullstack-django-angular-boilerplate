@@ -1,10 +1,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./client/",
     "paths": {
-      "@app/*": [ "client/app/*"],
-      "@assets/*": ["client/assets/*"]
+      "@app/*": [ "app/*"],
+      "@auth/*": [ "app/auth/*"],
+      "@base/*": [ "app/base/*"],
+      "@user/*": [ "app/user/*"],
+      "@admin/*": [ "app/admin/*"],
+      "@assets/*": ["assets/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

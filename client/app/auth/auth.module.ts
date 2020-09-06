@@ -8,8 +8,10 @@ import { AuthComponent } from './auth.component';
 
 // nebular auth module
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
+import { NgxLoginComponent } from '@auth/login/login.component'
+import { NgxRegisterComponent } from '@auth/register/register.component'
 
-import { 
+import {
   NbAlertModule,
   NbButtonModule,
   NbCheckboxModule,
@@ -28,7 +30,11 @@ export interface NbAuthSocialLink {
 const socialLinks: NbAuthSocialLink[] = [];
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [
+    AuthComponent,
+    NgxLoginComponent,
+    NgxRegisterComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
