@@ -7,9 +7,8 @@ import { NbEvaIconsModule } from '@nebular/eva-icons'
 import { AuthModule } from '@app/auth/auth.module';
 import { ThingsComponent } from '@app/things/things.component'
 
-import { NgModule, PLATFORM_ID, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core'
-import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt'
-import { CommonModule, isPlatformBrowser } from '@angular/common'
+import { NgModule } from '@angular/core'
+import { CommonModule } from '@angular/common'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from '@app/app.component'
