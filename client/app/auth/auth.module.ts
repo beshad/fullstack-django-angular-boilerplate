@@ -49,7 +49,8 @@ const socialLinks: NbAuthSocialLink[] = [];
         NbPasswordAuthStrategy.setup({
           name: 'email',
           token: {
-            class: NbAuthJWTToken
+            class: NbAuthJWTToken,
+            key: 'token'
           },
           baseEndpoint: 'http://localhost:7000/',
           login: {
