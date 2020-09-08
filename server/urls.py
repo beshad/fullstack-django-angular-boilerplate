@@ -8,6 +8,6 @@ router.register(r'things', views.ThingViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('api/', include('server.accounts.urls'))
+    path('api/auth/', include('server.authentication.urls')),
+    path('', include(router.urls))
 ]

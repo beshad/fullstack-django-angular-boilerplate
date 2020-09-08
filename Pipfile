@@ -13,8 +13,6 @@ django-filter = "*"
 django-cors-headers = "*"
 psycopg2 = "*"
 python-dotenv = "*"
-django-rest-knox = "*"
-django-rest-passwordreset = "*"
 
 [requires]
 python_version = "3.8"

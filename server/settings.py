@@ -18,10 +18,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # A list of origins that are authorized to make cross-site HTTP requests
+# CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000"
+    'http://localhost:3000'
 ]
 
 # Application definition
@@ -34,22 +34,31 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders',
-    'knox',
     'server.things',
-    'server.accounts',
-    'django_rest_passwordreset'
+    # 'server.authentication',
+    'corsheaders'
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'knox.auth.TokenAuthentication',
+        # 'server.authentication.jwt.JWTAuthentication'
     ]
+}
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        "Auth Token eg [Bearer (JWT) ]": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -57,7 +66,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
@@ -134,9 +142,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-REST_REGISTRATION = {
-    'REGISTER_VERIFICATION_ENABLED': False,
-    'REGISTER_EMAIL_VERIFICATION_ENABLED': False,
-    'RESET_PASSWORD_VERIFICATION_ENABLED': False,
-}
+# JWT
+JWT_SECRET_KEY = os.environ.get('JWT_SECRET_KEY')

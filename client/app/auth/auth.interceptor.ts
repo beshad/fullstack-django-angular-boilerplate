@@ -7,7 +7,7 @@ import { NbAuthJWTToken, NbAuthService, NbTokenService } from '@nebular/auth'
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 
-  token: string
+  private token: string
 
   constructor(
     private nbAuthService: NbAuthService

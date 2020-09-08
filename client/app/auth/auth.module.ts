@@ -54,18 +54,18 @@ const socialLinks: NbAuthSocialLink[] = [];
           },
           baseEndpoint: 'http://localhost:7000/',
           login: {
-            endpoint: 'api/login/',
+            endpoint: 'api/auth/login',
             method: 'post',
           },
           register: {
-            endpoint: 'api/register/',
+            endpoint: 'api/auth/register',
             method: 'post',
           },
           logout: {
             endpoint: '',
           },
           resetPass: {
-            endpoint: 'api/password_reset/',
+            endpoint: 'api/auth/password_reset',
             method: 'post',
           },
         }),
