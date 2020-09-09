@@ -18,7 +18,7 @@ class RegisterView(GenericAPIView):
             return Response({
                 'user': serializer.data,
                 'token': jwt.encode({
-                    'email': serializer.data['email']
+                    'username': serializer.data['username']
                 }, settings.JWT_SECRET_KEY)
             }, status=status.HTTP_201_CREATED)
 
@@ -34,7 +34,7 @@ class LoginView(GenericAPIView):
         user = auth.authenticate(username=username, password=password)
         if user:
             auth_token = jwt.encode({
-                'email': user.email
+                'username': user.username
             }, settings.JWT_SECRET_KEY)
 
             serializer = UserSerializer(user)
@@ -47,4 +47,6 @@ class LoginView(GenericAPIView):
             return Response(data, status=status.HTTP_200_OK)
 
             # SEND RES
-        return Response({'detail': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({
+            'detail': 'Invalid credentials'
+        }, status=status.HTTP_401_UNAUTHORIZED)

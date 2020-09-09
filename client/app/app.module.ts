@@ -43,6 +43,7 @@ import { AuthInterceptor } from './auth/auth.interceptor'
     NbEvaIconsModule
   ],
   providers: [
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

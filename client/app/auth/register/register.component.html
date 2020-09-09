@@ -23,7 +23,7 @@
            #username="ngModel"
            id="input-name"
            name="username"
-           placeholder="Full name"
+           placeholder="Username"
            autofocus
            fullWidth
            fieldSize="large"
@@ -34,10 +34,10 @@
            [attr.aria-invalid]="username.invalid && username.touched ? true : null">
     <ng-container *ngIf="username.invalid && username.touched">
       <p class="caption status-danger" *ngIf="username.errors?.required">
-        Full name is required!
+        Username is required!
       </p>
       <p class="caption status-danger" *ngIf="username.errors?.minlength || username.errors?.maxlength">
-        Full name should contains
+        Username should contains
         from {{getConfigValue('forms.validation.username.minLength')}}
         to {{getConfigValue('forms.validation.username.maxLength')}}
         characters

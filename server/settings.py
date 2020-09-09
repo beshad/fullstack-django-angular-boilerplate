@@ -18,11 +18,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# A list of origins that are authorized to make cross-site HTTP requests
 # CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000'
 ]
+CORS_ORIGIN_REGEX_WHITELIST = [
+    'http://localhost:3000'
+]
+CORS_ALLOW_HEADERS = (
+        'x-requested-with',
+        'content-type',
+        'accept',
+        'origin',
+        'authorization',
+        'x-csrftoken'
+)
 
 # Application definition
 
@@ -35,13 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'server.things',
-    # 'server.authentication',
+    'server.authentication',
     'corsheaders'
 ]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        # 'server.authentication.jwt.JWTAuthentication'
+        'server.authentication.jwt.JWTAuthentication'
     ]
 }
 
@@ -61,7 +73,6 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
