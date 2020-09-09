@@ -58,7 +58,7 @@ const socialLinks: NbAuthSocialLink[] = [];
             method: 'post',
           },
           register: {
-            endpoint: 'api/auth/register',
+            endpoint: 'api/v1/accounts/register/',
             method: 'post',
           },
           logout: {
