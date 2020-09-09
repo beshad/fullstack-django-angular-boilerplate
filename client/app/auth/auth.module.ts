@@ -4,12 +4,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from '@app/auth/auth-routing.module';
 import { AuthGuard } from '@app/auth/auth-guard.service';
-import { AuthComponent } from './auth.component';
+import { AuthComponent } from '@auth/auth.component';
 
 // nebular auth module
 import { NbPasswordAuthStrategy, NbAuthModule, NbAuthJWTToken } from '@nebular/auth';
 import { NgxLoginComponent } from '@auth/login/login.component'
-import { NgxRegisterComponent } from '@auth/register/register.component'
 
 import {
   NbAlertModule,
@@ -32,8 +31,7 @@ const socialLinks: NbAuthSocialLink[] = [];
 @NgModule({
   declarations: [
     AuthComponent,
-    NgxLoginComponent,
-    NgxRegisterComponent
+    NgxLoginComponent
   ],
   imports: [
     CommonModule,
@@ -56,10 +54,10 @@ const socialLinks: NbAuthSocialLink[] = [];
           login: {
             endpoint: 'api/auth/login',
             method: 'post',
-          },
-          register: {
-            endpoint: 'api/v1/accounts/register/',
-            method: 'post',
+            redirect: {
+              success: '/admin',
+              failure: null, // stay on the same page
+            },
           },
           logout: {
             endpoint: '',
@@ -67,73 +65,10 @@ const socialLinks: NbAuthSocialLink[] = [];
           resetPass: {
             endpoint: 'api/auth/password_reset',
             method: 'post',
-          },
-        }),
-      ],
-      forms: {
-        login: {
-          redirectDelay: 2000, // delay before redirect after a successful login, while success message is shown to the user
-          strategy: 'email',  // strategy id key.
-          rememberMe: true,   // whether to show or not the `rememberMe` checkbox
-          showMessages: {     // show/not show success/error messages
-            success: true,
-            error: true,
-          },
-          socialLinks: socialLinks, // social links at the bottom of a page
-          redirect: {
-            success: '/home/',
-            failure: null, // stay on the same page
-          },
-        },
-        register: {
-          redirectDelay: 500,
-          strategy: 'email',
-          showMessages: {
-            success: true,
-            error: true,
-          },
-          terms: true,
-          socialLinks: socialLinks,
-          redirect: {
-            success: '/login/',
-            failure: null, // stay on the same page
-          },
-        },
-        requestPassword: {
-          redirectDelay: 500,
-          strategy: 'email',
-          showMessages: {
-            success: true,
-            error: true,
-          },
-          socialLinks: socialLinks,
-        },
-        resetPassword: {
-          redirectDelay: 500,
-          strategy: 'email',
-          showMessages: {
-            success: true,
-            error: true,
-          },
-          socialLinks: socialLinks,
-        },
-        logout: {
-          redirectDelay: 500,
-          strategy: 'email',
-          redirect: '/login/'
-        },
-        validation: {
-          password: {
-            required: true,
-            minLength: 4,
-            maxLength: 50,
-          },
-          email: {
-            required: true,
           }
-        },
-      },
-    }),
+        })
+      ]
+    })
   ],
   providers: [
     AuthGuard

@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { NgxLoginComponent } from '@auth/login/login.component'
-import { NgxRegisterComponent } from '@auth/register/register.component'
 
 import {
   NbAuthComponent,
   NbLoginComponent,
-  NbRegisterComponent,
   NbLogoutComponent,
   NbRequestPasswordComponent,
   NbResetPasswordComponent,
@@ -23,13 +21,7 @@ const authRoutes: Routes = [
       },
       {
         path: 'login',
-        // component: NbLoginComponent,
         component: NgxLoginComponent,
-      },
-      {
-        path: 'register',
-        // component: NbRegisterComponent,
-        component: NgxRegisterComponent,
       },
       {
         path: 'logout',
