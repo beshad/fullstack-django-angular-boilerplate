@@ -50,7 +50,7 @@ const socialLinks: NbAuthSocialLink[] = [];
           name: 'email',
           token: {
             class: NbAuthJWTToken,
-            key: 'token'
+            key: 'access'
           },
           baseEndpoint: 'http://localhost:7000/',
           login: {
